@@ -1,0 +1,17 @@
+Package: mmap
+Type: Package
+Title: Map Pages of Memory
+Version: 0.6-19
+Date: 2020-01-12
+Author: Jeffrey A. Ryan
+LazyLoad: yes
+Maintainer: Jeffrey A. Ryan <jeff.a.ryan@gmail.com>
+Description: R interface to POSIX mmap and Window's MapViewOfFile.
+VignetteBuilder: utils
+License: GPL-3
+NeedsCompilation: yes
+Packaged: 2020-01-12 20:14:11 UTC; jryan
+Repository: RSPM
+Date/Publication: 2020-01-14 10:40:02 UTC
+Encoding: UTF-8
+Built: R 3.6.0; x86_64-pc-linux-gnu; 2020-04-03 05:15:02 UTC; unix

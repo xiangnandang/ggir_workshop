@@ -1,0 +1,11 @@
+es                      Expression substitution
+matches                 Extract matching substrings
+ore                     Oniguruma regular expressions
+ore.dict                Get or set entries in the pattern dictionary
+ore.escape              Escape regular expression special characters
+ore.file                Use a file as a text source
+ore.ismatch             Does text match a regex?
+ore.lastmatch           Retrieve the last match
+ore.search              Search for matches to a regular expression
+ore.split               Split strings using a regex
+ore.subst               Replace matched substrings with new text

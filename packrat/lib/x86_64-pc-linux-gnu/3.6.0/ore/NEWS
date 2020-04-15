@@ -1,0 +1,196 @@
+Significant changes to the "ore" package are laid out below for each release.
+
+===============================================================================
+
+VERSION 1.6.3
+
+- The ore.file() function now performs path expansion on its argument.
+- The package is now more careful to check that "external" pointers are valid
+  before dereferencing them, thereby avoiding potential segfaults. (Reported
+  by Thomas Weise, #5).
+- Multiarchitecture support is now explicitly declared, ensuring that 32-bit
+  and 64-bit versions are built when installing from source on Windows.
+  (Reported by Ioannis Mamalikidis, #6).
+
+===============================================================================
+
+VERSION 1.6.2
+
+- Additional warnings from GCC 8 and rchk have been resolved.
+
+===============================================================================
+
+VERSION 1.6.1
+
+- The Onigmo library has been updated to version 6.1.3.
+- Various compiler and sanitiser warnings have been resolved.
+
+===============================================================================
+
+VERSION 1.6.0
+
+- The Onigmo library has been updated to version 6.1.1.
+- Files will now be searched incrementally, meaning that large files do not
+  need to be read in their entirety if the match is near the beginning. This is
+  disabled by default if all matches are requested.
+- Additional arguments to ore.search() are now accessible through an ellipsis
+  argument to ore.ismatch().
+- The results of a substitution function are now recycled across matches, and
+  can therefore be of any length. 
+- A handful of subtle garbage-collection heisenbugs have been corrected.
+  (Reported by Tomas Kalibera.)
+
+===============================================================================
+
+VERSION 1.5.0
+
+- The object returned by ore.search() now generally has the class "orematches".
+  This class has its own indexing and print methods to avoid copious output and
+  allow quicker access to multiple matches.
+- The ore.search() and ore.split() functions now accept zero-length text
+  vectors, returning an empty list rather than producing an error.
+- The matches() and groups() functions now use the last match by default, if
+  called with no argument.
+
+===============================================================================
+
+VERSION 1.4.0
+
+- The new ore.escape() function can be used to escape characters which would
+  usually have special significance in a regular expression. This can be
+  helpful when incorporating arbitrary strings into a regex using ore().
+
+===============================================================================
+
+VERSION 1.3.0
+
+- It is now possible to search directly in text files, using their native
+  encoding, or in binary files, byte-by-byte. To do this, a call to the new
+  ore.file() function should replace the usual text argument to ore.search().
+  All of Onigmo's many encodings are supported for text files.
+- A new infix operator, %~|%, can be used filter vectors by whether they match
+  a regular expression.
+- The "matches" and "groups" methods for lists now drop nonmatching elements by
+  default. This helps avoid many NULLs in results.
+- The "print" method for "orematch" objects now works correctly with
+  double-width characters.
+
+===============================================================================
+
+VERSION 1.2.2
+
+- Zero-length matches could lead to segmentation faults. This has been
+  corrected.
+- Calls to ore.dict() which include other function calls are now handled
+  properly. (Reported by Jon Olav Vik.)
+- The es() function would previously only honour its rounding arguments if all
+  matches were numeric. This has been corrected.
+
+===============================================================================
+
+VERSION 1.2.1
+
+- The es() function would previously only replace the first embedded
+  expression. That has been corrected.
+- Attributes are now ignored when comparing "ore" objects in tests. This led to
+  a failure on versions of R prior to 3.2.0, at least on Windows.
+
+===============================================================================
+
+VERSION 1.2.0
+
+- Oniguruma's support for alternative regular expression syntaxes is now
+  exposed by the ore() function. At present only "fixed" (i.e., literal)
+  patterns are supported in addition to the default, which has always been
+  "ruby".
+- The ore.lastmatch() function gains a "simplify" argument.
+- Underscore-separated function names are now available as aliases to their
+  period-separated equivalents. For example, you can use ore_search() instead
+  of ore.search(), if you prefer.
+- The use of variables holding patterns could sometimes cause errors in ore().
+  This has been corrected.
+
+===============================================================================
+
+VERSION 1.1.0
+
+- The package now provides functionality for creating and working with a
+  pattern dictionary, and a few predefined patterns are included. This allows
+  common regular expressions to be easily named, stored, and integrated into
+  larger expressions later. The key new function is ore.dict().
+- The new es() function provides expression substitution, a convenient way to
+  embed R expressions within strings, and a good example of the package's
+  substitution functions in action.
+- Printing of "orematch" objects is now much clearer, particularly for long or
+  multiline search texts.
+- Group matches are now passed to substitution functions, in an attribute.
+- The "ore.colour" (or "ore.color") option can now be used to determine whether
+  to print in colour, rather than using the crayon package (although the latter
+  is still the default).
+
+===============================================================================
+
+VERSION 1.0.7
+
+- Printing "orematch" objects no longer leads to errors. This was due to a
+  mismatch in function names between the C code and the calling R code.
+
+===============================================================================
+
+VERSION 1.0.6
+
+- All of the core functions have now switched to primarily C implementations,
+  providing substantial performance gains. Minor changes in the handling of
+  text encodings have occurred alongside this.
+- The limit of 128 matches per string has been removed, due to more
+  sophisticated memory management.
+- The arguments to ore.subst() have been reordered slightly, to avoid
+  inadvertent partial matching when using a substitution function.
+
+===============================================================================
+
+VERSION 1.0.5
+
+- Calculation of match offsets within the C code have been made much more
+  efficient.
+
+===============================================================================
+
+VERSION 1.0.4
+
+- Default methods have been added for matches() and groups(), which return NA.
+- The "rex" test is now skipped if that package is not available.
+- Various low-level warnings/errors from UBSAN have been addressed.
+
+===============================================================================
+
+VERSION 1.0.3
+
+- Almost all of the work of ore.search() is now done in C code rather than R,
+  for performance. In testing, ore is now appreciably faster than base R for
+  simple searches, when the regex is precompiled. Optimisation of other
+  functions will follow in later releases.
+- The package no longer requires any specified minimum version of R (although
+  it has not been tested on old releases).
+
+===============================================================================
+
+VERSION 1.0.2
+
+- A bug in the ore.subst() function that could produce low-level errors or
+  segmentation faults has been fixed.
+
+===============================================================================
+
+VERSION 1.0.1
+
+- Tests should no longer fail in locales which do not use a UTF-8 encoding.
+- Documentation tweaks.
+
+===============================================================================
+
+VERSION 1.0.0
+
+- First public release.
+
+===============================================================================

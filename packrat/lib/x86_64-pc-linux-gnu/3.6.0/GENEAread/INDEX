@@ -1,0 +1,18 @@
+AccData                 Accelerometer Data Object
+GENEActiv.calibrate     GENEActiv.calibrate
+GENEAread-package       A package to process binary accelerometer
+                        output files.
+GRtime                  Date time handling for the GENEAread package.
+convert.time            convert.time
+epoch                   Compute epochal summary statistics.
+get.intervals           Extract an interval of data.
+hanning.window          Hanning Window
+header.info             Get header info from GENEA output (.bin) file
+parse.time              Parses a character time representation to
+                        another format.
+plot.stft               plot stft
+print.stft              print.stft
+recalibrate             recalibrate
+stft                    Computes Short Time Fourier Transforms
+svm                     sum vector magnitude
+uniform.window          Uniform Window

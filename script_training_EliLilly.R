@@ -13,7 +13,7 @@ file_folder_name = "mydemostudy"
 if (dir.exists(file_folder_name) == FALSE) {
   dir.create(file_folder_name)
   unzip("demofile_leftwrist.zip", exdir = ".")
-  file.move("demofile_leftwrist.cwa",file_folder_name)
+  file.rename("demofile_leftwrist.cwa",file.path(file_folder_name, "demofile_leftwrist.cwa"))
 }
 g.shell.GGIR(#=======================================
              # INPUT NEEDED:
@@ -37,6 +37,7 @@ g.shell.GGIR(#=======================================
              # Key functions: reading file, auto-calibration, and extracting features
              windowsizes = c(5,900,3600), #Epoch length, non-wear detection resolution, non-wear detection evaluation window
              printsummary=TRUE,
+             chunksize=0.2,
              #-------------------------------
              # Part 2 parameters:
              #-------------------------------
