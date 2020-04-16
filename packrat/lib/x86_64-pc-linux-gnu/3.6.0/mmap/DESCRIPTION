@@ -15,3 +15,6 @@ Repository: RSPM
 Date/Publication: 2020-01-14 10:40:02 UTC
 Encoding: UTF-8
 Built: R 3.6.0; x86_64-pc-linux-gnu; 2020-04-03 05:15:02 UTC; unix
+InstallAgent: packrat 0.5.0
+InstallSource: RSPM
+Hash: 99a799eb97f7c26c033c221ec8780923

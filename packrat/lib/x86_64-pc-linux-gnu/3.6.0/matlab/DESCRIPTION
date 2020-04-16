@@ -16,3 +16,6 @@ NeedsCompilation: no
 Repository: RSPM
 Date/Publication: 2014-06-24 23:33:54
 Built: R 3.6.0; ; 2020-04-03 04:27:51 UTC; unix
+InstallAgent: packrat 0.5.0
+InstallSource: RSPM
+Hash: 5f52fc7df200c7c53551370570fa7f5e
